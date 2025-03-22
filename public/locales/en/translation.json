@@ -1,0 +1,28 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "retry": "Retry",
+    "error": "Error",
+    "refresh": "Refresh"
+  },
+  "navigation": {
+    "allRoutes": "All Routes",
+    "favorites": "Favorites",
+    "nearby": "Nearby"
+  },
+  "routes": {
+    "searchPlaceholder": "Search routes/origin/destination...",
+    "noResults": "No routes found"
+  },
+  "stops": {
+    "distance": "Distance: {{distance}}",
+    "noNearbyStops": "No nearby stops found",
+    "locationError": "Unable to get location",
+    "permissionDenied": "Location permission denied",
+    "updatingLocation": "Updating location..."
+  },
+  "favorites": {
+    "searchPlaceholder": "Search favorites...",
+    "noFavorites": "No favorite items"
+  }
+}
