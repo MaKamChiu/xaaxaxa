@@ -63,6 +63,7 @@ const RoutesStack = () => {
 };
 
 const FavoritesStack = () => {
+  const { t } = useTranslation(); // 添加缺少的 useTranslation hook
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -82,6 +83,7 @@ const FavoritesStack = () => {
 };
 
 const NearbyStack = () => {
+  const { t } = useTranslation(); // 添加缺少的 useTranslation hook
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -103,6 +105,7 @@ const NearbyStack = () => {
 export default function App() {
   const [busData, setBusData] = useState<any[]>([]);
   const [refreshing, setRefreshing] = useState(false);
+  const { t } = useTranslation(); // 添加缺少的 useTranslation hook 
 
   const loadData = async () => {
     const data = await fetchBusData();
