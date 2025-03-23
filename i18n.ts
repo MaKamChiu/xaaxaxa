@@ -3,17 +3,19 @@ import { initReactI18next } from "react-i18next";
 import * as Localization from "expo-localization";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+// 直接引入翻譯檔案
+import enTranslation from './translations/en.json';
+import zhTWTranslation from './translations/zh-tw.json';
+
 const LANGUAGE_DETECTOR = {
   type: "languageDetector",
   async: true,
   detect: async (callback: (lng: string) => void) => {
     try {
-      // 先嘗試從 AsyncStorage 讀取使用者設定的語言
       const savedLanguage = await AsyncStorage.getItem("user-language");
       if (savedLanguage) {
         return callback(savedLanguage);
       }
-      // 如果沒有儲存的語言設定，使用系統語言
       const locale = Localization.locale;
       const languageCode = locale.split("-")[0];
       callback(languageCode === "zh" ? "zh-tw" : "en");
@@ -39,10 +41,10 @@ i18n
     fallbackLng: "en",
     resources: {
       en: {
-        translation: require("./public/locales/en/translation.json"),
+        translation: enTranslation
       },
       "zh-tw": {
-        translation: require("./public/locales/zh-tw/translation.json"),
+        translation: zhTWTranslation
       },
     },
     interpolation: {

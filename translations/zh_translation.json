@@ -1,0 +1,28 @@
+{
+  "common": {
+    "loading": "載入中...",
+    "retry": "重試",
+    "error": "錯誤",
+    "refresh": "重新整理"
+  },
+  "navigation": {
+    "allRoutes": "全部路線",
+    "favorites": "收藏",
+    "nearby": "附近站點"
+  },
+  "routes": {
+    "searchPlaceholder": "搜尋路線/起點/終點...",
+    "noResults": "沒有找到相關路線"
+  },
+  "stops": {
+    "distance": "距離: {{distance}}",
+    "noNearbyStops": "找不到附近巴士站",
+    "locationError": "無法取得位置",
+    "permissionDenied": "位置權限被拒絕",
+    "updatingLocation": "正在更新位置..."
+  },
+  "favorites": {
+    "searchPlaceholder": "搜尋收藏...",
+    "noFavorites": "沒有收藏項目"
+  }
+}

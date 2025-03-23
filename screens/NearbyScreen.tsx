@@ -1,5 +1,5 @@
 import * as Location from 'expo-location';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { View, Text, FlatList, StyleSheet, Platform, TouchableOpacity, ActivityIndicator } from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
 import { BusDataContext } from '../App';
@@ -49,7 +49,7 @@ const NearbyScreen = () => {
   };
 
   // Fetch nearby stops based on user location
-  const fetchNearbyStops = async () => {
+  const fetchNearbyStops = useCallback(async () => {
     try {
       setLoading(true);
       setLocationError(null);
@@ -109,11 +109,11 @@ const NearbyScreen = () => {
       setLocationError('An unexpected error occurred');
       setLoading(false);
     }
-  };
+  }, [requestLocationPermission]); // 添加依賴
 
   useEffect(() => {
     fetchNearbyStops();
-  }, []);
+  }, [fetchNearbyStops]);
 
   const refresh = () => {
     fetchNearbyStops();

@@ -1,5 +1,4 @@
 // App.tsx
-import "./i18n";
 import React, { createContext, useEffect, useState } from "react";
 import { ActivityIndicator, View, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
@@ -64,7 +63,6 @@ const RoutesStack = () => {
 };
 
 const FavoritesStack = () => {
-  const { t } = useTranslation(); // 在每個子組件中添加翻譯 hook
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -84,7 +82,6 @@ const FavoritesStack = () => {
 };
 
 const NearbyStack = () => {
-  const { t } = useTranslation(); // 在每個子組件中添加翻譯 hook
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -106,7 +103,6 @@ const NearbyStack = () => {
 export default function App() {
   const [busData, setBusData] = useState<any[]>([]);
   const [refreshing, setRefreshing] = useState(false);
-  const { t } = useTranslation(); // 添加翻譯 hook
 
   const loadData = async () => {
     const data = await fetchBusData();
