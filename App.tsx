@@ -9,6 +9,8 @@ import RoutesScreen from "./screens/RoutesScreen";
 import FavoritesScreen from "./screens/FavoritesScreen";
 import RouteDetailScreen from "./screens/RouteDetailScreen";
 import NearbyScreen from "./screens/NearbyScreen";
+// 引入翻譯 hook
+import { useTranslation } from "react-i18next";
 // You'd typically import icons from a library like @expo/vector-icons
 import { MaterialIcons } from "@expo/vector-icons";
 
@@ -42,12 +44,13 @@ const fetchBusData = async () => {
 
 // Create a stack navigator for each tab
 const RoutesStack = () => {
+  const { t } = useTranslation(); // 在每個子組件中添加翻譯 hook
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="RoutesHome"
         component={RoutesScreen}
-        options={{ title: "全部路線" }}
+        options={{ title: t("navigation.allRoutes") }}
       />
       <Stack.Screen
         name="RouteDetail"
@@ -61,16 +64,17 @@ const RoutesStack = () => {
 };
 
 const FavoritesStack = () => {
+  const { t } = useTranslation(); // 在每個子組件中添加翻譯 hook
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="FavoritesHome"
         component={FavoritesScreen}
-        options={{ title: "收藏" }}
+        options={{ title: t("navigation.favorites") }}
       />
       <Stack.Screen
         name="RouteDetail"
-        getComponent={RouteDetailScreen}
+        component={RouteDetailScreen}
         options={({ route }) => ({
           title: `${route.params.route}號線`,
         })}
@@ -80,16 +84,17 @@ const FavoritesStack = () => {
 };
 
 const NearbyStack = () => {
+  const { t } = useTranslation(); // 在每個子組件中添加翻譯 hook
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="NearbyHome"
         component={NearbyScreen}
-        options={{ title: "附近站點" }}
+        options={{ title: t("navigation.nearby") }}
       />
       <Stack.Screen
         name="RouteDetail"
-        getComponent={RouteDetailScreen}
+        component={RouteDetailScreen}
         options={({ route }) => ({
           title: `${route.params.route}號線`,
         })}
@@ -101,6 +106,7 @@ const NearbyStack = () => {
 export default function App() {
   const [busData, setBusData] = useState<any[]>([]);
   const [refreshing, setRefreshing] = useState(false);
+  const { t } = useTranslation(); // 添加翻譯 hook
 
   const loadData = async () => {
     const data = await fetchBusData();
