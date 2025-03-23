@@ -1,8 +1,6 @@
-import './i18n';
 import { registerRootComponent } from 'expo';
+import './i18n';  // 確保 i18n 在所有組件前引入
 import App from './App';
 
-// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
-// It also ensures that whether you load the app in Expo Go or in a native build,
-// the environment is set up appropriately
+// 註冊根組件
 registerRootComponent(App);

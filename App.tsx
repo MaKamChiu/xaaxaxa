@@ -1,4 +1,6 @@
 // App.tsx
+import './i18n';
+import { registerRootComponent } from 'expo';
 import React, { createContext, useEffect, useState } from "react";
 import { ActivityIndicator, View, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
@@ -140,7 +142,7 @@ export default function App() {
           screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
               let iconName;
-
+  
               if (route.name === "Routes") {
                 iconName = "directions-bus";
               } else if (route.name === "Favorites") {
@@ -148,7 +150,7 @@ export default function App() {
               } else if (route.name === "Nearby") {
                 iconName = "near-me";
               }
-
+  
               return (
                 <MaterialIcons name={iconName} size={size} color={color} />
               );
@@ -194,3 +196,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
+
+registerRootComponent(App);

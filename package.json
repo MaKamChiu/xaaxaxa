@@ -1,6 +1,6 @@
 {
   "license": "0BSD",
-  "main": "index.ts",
+  "main": "App.tsx",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
